@@ -1,0 +1,131 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-info">
+              <h4 class="card-title ">{{'Boat Manufacturer List'}}</h4>
+              <a *ngIf="('CreateManufacturerCommand')" class="pull-right" data-toggle="modal" data-target="#boatManufacturer">
+                <i style="color:white" title="{{'Add'}}" class="far fa-plus-square fa-2x"></i></a>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <div class="col-md-12 row">
+                  <div *ngIf="dataLoaded==false" class="spinner-border text-info" role="status">
+                    <span class="visually-hidden"></span>
+                  </div>
+                  <div class="col-md-3 ml-auto">
+                    <mat-form-field>
+                      <mat-label>Filter</mat-label>
+                      <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <table mat-table [dataSource]="dataSource" matSort>
+  
+                  <ng-container matColumnDef="manufacturerImage">
+                    <th mat-header-cell *matHeaderCellDef>{{'manufacturerImage'}}</th>
+                    <td mat-cell *matCellDef="let element">
+                      <img [src]="getImageUrl(element)" alt="Manufacturer Image" width="100" height="68">
+                    </td>
+                  </ng-container>
+  
+                  <ng-container matColumnDef="manufacturerName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'manufacturerName'}}</th>
+                    <td mat-cell *matCellDef="let element">{{element.manufacturerName}}</td>
+                  </ng-container>
+  
+                  <ng-container matColumnDef="manufacturerWebSite">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'manufacturerWebSite'}}</th>
+                    <td mat-cell *matCellDef="let element">{{element.manufacturerWebSite}}</td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="update">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td style="width: 25px;" mat-cell *matCellDef="let element">
+                      <a data-toggle="modal" data-target="#boatManufacturer" (click)="getBoatTypeById(element._id)">
+                        <i title="{{'Update'}}" style="color: #ff5722;" class="far fa-edit"></i>
+                      </a>
+                    </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="delete">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td style="width: 25xp;" mat-cell *matCellDef="let element">
+                      <a (confirm)="deleteType(element._id)" [swal]="deleteSwal">
+                        <i style="color: #D9534E;" class="fas fa-trash-alt"></i>
+                      </a>
+                    </td>
+                  </ng-container>
+  
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="modal modal-angular fade" id="boatManufacturer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body text-center">
+          <button type="button" class="close" data-dismiss="modal" aria-label="close" 
+            (click)="clearFormGroup(manufacturerAddForm)"><span aria-hidden="true">&times;</span></button>
+            <h4 class="margin-top">
+              {{"Model Add Form"}}
+            </h4>
+            <div class="seperator"></div>
+
+            <form *ngIf="manufacturerAddForm" [formGroup]="manufacturerAddForm" (ngSubmit)="save()">
+              
+              <div class="row">
+                <div class="col-md-12">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Manufacturer Name" type="text" id="manufacturerName" name="manufacturerName" 
+                      formControlName="manufacturerName" />
+                    <div class="alert alert-danger" 
+                      *ngIf="manufacturerAddForm.get('manufacturerName')!.hasError('manufacturerName') && manufacturerAddForm.get('manufacturerName')!.dirty">
+                    </div>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Manufacturer Web Site" type="text" id="manufacturerWebsite" name="manufacturerWebsite" 
+                      formControlName="manufacturerWebsite" />
+                    <div class="alert alert-danger" 
+                      *ngIf="manufacturerAddForm.get('manufacturerWebsite')!.hasError('manufacturerWebsite') && manufacturerAddForm.get('manufacturerWebsite')!.dirty">
+                    </div>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div>
+                    <input type="file" (change)="onFileSelected($event)" accept="image/*">
+                    <div class="alert alert-danger" *ngIf="!image && isFormSubmitted">Please upload an image.</div>
+                    <img [src]="image" alt="Uploaded Image" *ngIf="image" width="100" height="68">
+                  </div>
+                </div>
+              </div>
+                        
+              <button mat-raised-button type="submit" class="btn btn-info pull-right">{{'Save'}}</button>
+              <div class="clearfix"></div>
+            </form>
+        </div> 
+      </div>
+    </div>
+  </div>
+
+  <swal #deleteSwal title="{{'DeleteConfirm'}}" icon="error" [showCancelButton]="true"
+    [confirmButtonText]="'OK'" [cancelButtonText]="'Cancel'">
+  </swal>
