@@ -24,7 +24,12 @@ constructor(private httpClient:HttpClient) {}
     );
   }
 
-  addManufacturer(element: BoatManufacturer): Observable<any> {
-    return this.httpClient.post(this.getApiUrl + "/manufacturer", element, { responseType: 'text' });
+  addManufacturer(boatManufacturer: BoatManufacturer): Observable<any> {
+    const data = {
+      manufacturerName: boatManufacturer.manufacturerName,
+      manufacturerWebSite: boatManufacturer.manufacturerWebsite,
+      image: boatManufacturer.fileName
+    }
+    return this.httpClient.post(this.getApiUrl + "/manufacturer", data, { responseType: 'text' });
   }
 }
