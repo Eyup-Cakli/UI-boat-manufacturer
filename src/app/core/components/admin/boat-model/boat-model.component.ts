@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from "rxjs/operators";
 import { AlertifyService } from 'app/core/services/alertify.service';
@@ -39,10 +39,10 @@ dataSource: MatTableDataSource<any>;
   
   dataLoaded = false;
 
-  myModelControl = new FormControl("");
-  myManufacturerControl = new FormControl("");
-  myTypeControl = new FormControl("");
-  myHullMetarialControl = new FormControl("");
+  myModelControl = new UntypedFormControl("");
+  myManufacturerControl = new UntypedFormControl("");
+  myTypeControl = new UntypedFormControl("");
+  myHullMetarialControl = new UntypedFormControl("");
 
   //autocomplete
   filteredManufacturer: Observable<BoatManufacturer[]>;
@@ -61,7 +61,7 @@ dataSource: MatTableDataSource<any>;
     "delete"
   ];
 
-  modelAddForm: FormGroup;
+  modelAddForm: UntypedFormGroup;
 
   constructor(
     private modelService: BoatModelService,
@@ -69,7 +69,7 @@ dataSource: MatTableDataSource<any>;
     private typeService: BoatTypeService,
     private hullMetarialService: BoatHullMetarialService,
     private alertifyService: AlertifyService,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) {}
 
   ngAfterViewInit(): void {
@@ -165,7 +165,7 @@ dataSource: MatTableDataSource<any>;
     )
   }
 
-  clearFormGroup(group: FormGroup) {
+  clearFormGroup(group: UntypedFormGroup) {
     group.markAsUntouched();
     group.reset();
 

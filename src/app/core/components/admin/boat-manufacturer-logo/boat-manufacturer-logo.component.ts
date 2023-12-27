@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
@@ -21,11 +21,11 @@ export class BoatManufacturerLogoComponent implements AfterViewInit, OnInit {
   logoList: BoatManufacturerLogo[] = [];
   boatLogo: BoatManufacturerLogo = new BoatManufacturerLogo();
   dataLoaded = false;
-  typeControl = new FormControl();
+  typeControl = new UntypedFormControl();
 
-  myLogoControl = new FormControl("");
+  myLogoControl = new UntypedFormControl("");
 
-  logoAddForm: FormGroup;
+  logoAddForm: UntypedFormGroup;
 
   displayedColumns: string[] = [
     "image",
@@ -34,7 +34,7 @@ export class BoatManufacturerLogoComponent implements AfterViewInit, OnInit {
 
   constructor(
     private logoService: BoatManufacturerLogoService,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) {}
 
   ngAfterViewInit(): void {
@@ -65,7 +65,7 @@ export class BoatManufacturerLogoComponent implements AfterViewInit, OnInit {
     })
   }
 
-  clearFormGroup(group: FormGroup) {
+  clearFormGroup(group: UntypedFormGroup) {
     group.markAsUntouched();
     group.reset();
 

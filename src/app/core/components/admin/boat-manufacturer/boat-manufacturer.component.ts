@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
@@ -26,7 +26,7 @@ export class BoatManufacturerComponent implements OnInit {
 
   dataLoaded = false;
 
-  typeControl = new FormControl();
+  typeControl = new UntypedFormControl();
 
   image: string = "";
 
@@ -38,12 +38,12 @@ export class BoatManufacturerComponent implements OnInit {
     "delete"
   ];
 
-  manufacturerAddForm: FormGroup;
+  manufacturerAddForm: UntypedFormGroup;
 
   constructor(
     private manufacturerService: BoatManufacturerService,
     private manufacturerLogoService: BoatManufacturerLogoService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private alertifyService: AlertifyService
   ) {
   }
@@ -137,7 +137,7 @@ export class BoatManufacturerComponent implements OnInit {
     )
   }
 
-  clearFormGroup(group: FormGroup) {
+  clearFormGroup(group: UntypedFormGroup) {
     group.markAsUntouched();
     group.reset();
 

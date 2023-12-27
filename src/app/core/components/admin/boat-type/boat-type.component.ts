@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, OnInit, ViewChild} from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -25,7 +25,7 @@ export class BoatTypeComponent implements AfterViewInit, OnInit {
   
   dataLoaded = false;
 
-  myTypeControl = new FormControl("");
+  myTypeControl = new UntypedFormControl("");
 
   displayedColumns: string[] = [
     "typeName",
@@ -33,11 +33,11 @@ export class BoatTypeComponent implements AfterViewInit, OnInit {
     "delete"
   ];
 
-  typeAddForm: FormGroup;
+  typeAddForm: UntypedFormGroup;
 
   constructor (
     private typeService: BoatTypeService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private alertifyService: AlertifyService
   ) {}
 
@@ -125,7 +125,7 @@ export class BoatTypeComponent implements AfterViewInit, OnInit {
     })
   }
 
-  clearFormGroup(group: FormGroup) {
+  clearFormGroup(group: UntypedFormGroup) {
     group.markAsUntouched();
     group.reset();
 

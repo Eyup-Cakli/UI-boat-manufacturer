@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, OnInit, ViewChild} from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -25,7 +25,7 @@ export class BoatHullMetarialComponent implements AfterViewInit, OnInit {
   boatHullMetarial: BoatHullMetarial = new BoatHullMetarial;
   dataLoaded = false;
 
-  myHullMetarialControl = new FormControl("");
+  myHullMetarialControl = new UntypedFormControl("");
 
   displayedColumns: string[] = [
     "boatHullMetarialName",
@@ -33,11 +33,11 @@ export class BoatHullMetarialComponent implements AfterViewInit, OnInit {
     "delete"
   ];
 
-  hullMetarialAddForm: FormGroup;
+  hullMetarialAddForm: UntypedFormGroup;
 
   constructor(
     private boatHullMetarialService: BoatHullMetarialService,
-    private formBulder: FormBuilder,
+    private formBulder: UntypedFormBuilder,
     private alertifyService: AlertifyService
   ) {}
 
@@ -124,7 +124,7 @@ export class BoatHullMetarialComponent implements AfterViewInit, OnInit {
     })
   }
 
-  clearFormGroup(group: FormGroup) {
+  clearFormGroup(group: UntypedFormGroup) {
     group.markAllAsTouched();
     group.reset();
 
