@@ -1,8 +1,8 @@
 import { Component, AfterViewInit, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
-import { MatPaginator } from "@angular/material/paginator";
+import { MatLegacyPaginator as MatPaginator } from "@angular/material/legacy-paginator";
 import { MatSort } from "@angular/material/sort";
-import { MatTableDataSource } from "@angular/material/table";
+import { MatLegacyTableDataSource as MatTableDataSource } from "@angular/material/legacy-table";
 import { AlertifyService } from 'app/core/services/alertify.service';
 import { BoatManufacturerService } from "./services/boat-manufacturer.service";
 import { BoatManufacturerLogoService } from '../boat-manufacturer-logo/services/boat-manufacturer-logo.service';

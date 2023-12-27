@@ -14,7 +14,7 @@ import { TranslationService } from './core/services/Translation.service';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { HttpEntityRepositoryService } from './core/services/http-entity-repository.service';
 import { MatSortModule } from '@angular/material/sort';
-import { MatTableModule } from '@angular/material/table';
+import { MatLegacyTableModule as MatTableModule } from '@angular/material/legacy-table';
 
 // i18 kullanıclak ise aşağıdaki metod aktif edilecek
 
