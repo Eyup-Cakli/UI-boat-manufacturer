@@ -12,7 +12,7 @@ import { BoatTypeComponent } from 'app/core/components/admin/boat-type/boat-type
 export const AdminLayoutRoutes: Routes = [
     
     { path: 'dashboard',      component: DashboardComponent},
-    { path: 'metarial',      component: BoatHullMetarialComponent }, 
+    { path: 'material',      component: BoatHullMetarialComponent }, 
     { path: 'manufacturer',      component: BoatManufacturerComponent },
     { path: 'logo',      component: BoatManufacturerLogoComponent },
     { path: 'model',      component: BoatModelComponent },

@@ -13,7 +13,7 @@ declare interface RouteInfo {
 }
 
 export const USERROUTES: RouteInfo[] = [ 
-  { path: '/metarial', title: 'Boat Hull Metarial', icon: 'build', class: '', claim: "" },
+  { path: '/material', title: 'Boat Hull Metarial', icon: 'build', class: '', claim: "" },
   { path: '/manufacturer', title: 'Boat Manufacturer', icon: 'directions_boat', class: '', claim: "" },
   { path: '/logo', title: 'Boat Manufacturer Logo', icon: 'perm_media', class: '', claim: "" },
   { path: '/model', title: 'Boat Model', icon: 'list_alt', class: '', claim: "" },
