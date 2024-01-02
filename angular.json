@@ -49,7 +49,6 @@
               "node_modules/bootstrap-select/dist/js/i18n/defaults-tr_TR.js"
             ],
             "allowedCommonJsDependencies": [
-              "lodash",
               "rxjs/add/operator/filter",
               "jquery",
               "chartist"
