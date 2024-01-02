@@ -15,12 +15,14 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { HttpEntityRepositoryService } from './core/services/http-entity-repository.service';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { CommonModule } from '@angular/common';
 import { BoatHullMetarialComponent } from './core/components/admin/boat-hull-metarial/boat-hull-metarial.component';
 import { BoatManufacturerComponent } from './core/components/admin/boat-manufacturer/boat-manufacturer.component';
 import { BoatManufacturerLogoComponent } from './core/components/admin/boat-manufacturer-logo/boat-manufacturer-logo.component';
 import { BoatModelComponent } from './core/components/admin/boat-model/boat-model.component';
 import { BoatTypeComponent } from './core/components/admin/boat-type/boat-type.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 // i18 kullanıclak ise aşağıdaki metod aktif edilecek
 
@@ -47,6 +49,8 @@ export function tokenGetter() {
     AppRoutingModule,
     MatSortModule,
     MatTableModule,
+    MatAutocompleteModule,
+    MatPaginatorModule,
     CommonModule,
     NgMultiSelectDropDownModule.forRoot(),
     SweetAlert2Module.forRoot(),
