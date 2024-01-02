@@ -1,6 +1,5 @@
 import { HostListener } from "@angular/core";
 import { Component } from "@angular/core";
-import { Jsonp } from "@angular/http";
 import { NavigationStart, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 import { Subscription } from "rxjs/Rx";
@@ -21,8 +20,8 @@ export class AppComponent  {
     private translate: TranslateService,
     private router: Router
   ) {
-    translate.setDefaultLang("tr-TR");
-    translate.use("tr-TR");
+    //translate.setDefaultLang("tr-TR");
+    //translate.use("tr-TR");
     this.subscription = router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         browserRefresh = !router.navigated;

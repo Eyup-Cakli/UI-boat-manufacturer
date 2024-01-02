@@ -21,15 +21,15 @@ export class AdminLayoutComponent implements OnInit {
 
     constructor(public location: Location, private router: Router, public translate: TranslateService ) {
                
-            this.translate.setDefaultLang("tr-TR");
-            this.translate.use('tr-TR')         
+            //this.translate.setDefaultLang("tr-TR");
+            //this.translate.use('tr-TR')         
     }
 
     isLoggedIn() {
     }
 
     ngOnInit() {
-            this.translate.use('tr-TR')  
+            //this.translate.use('tr-TR')  
             const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
             if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {

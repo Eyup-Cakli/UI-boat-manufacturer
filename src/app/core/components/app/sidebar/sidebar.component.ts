@@ -38,8 +38,8 @@ export class SidebarComponent implements OnInit {
   
     this.userMenuItems = USERROUTES.filter(menuItem => menuItem);
 
-    var lang=localStorage.getItem('lang') || 'tr-TR'
-    this.translateService.use(lang);
+    //var lang=localStorage.getItem('lang') || 'tr-TR'
+    //this.translateService.use(lang);
   }
   isMobileMenu() {
       if ($(window).width() > 991) {
