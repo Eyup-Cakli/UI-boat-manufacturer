@@ -24,11 +24,6 @@ import { MatSortModule } from '@angular/material/sort';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-// import { BoatHullMetarialComponent } from '../components/admin/boat-hull-metarial/boat-hull-metarial.component';
-// import { BoatManufacturerComponent } from '../components/admin/boat-manufacturer/boat-manufacturer.component';
-// import { BoatManufacturerLogoComponent } from '../components/admin/boat-manufacturer-logo/boat-manufacturer-logo.component';
-// import { BoatModelComponent } from '../components/admin/boat-model/boat-model.component';
-// import { BoatTypeComponent } from '../components/admin/boat-type/boat-type.component';
 
 
 // export function layoutHttpLoaderFactory(http: HttpClient) {
@@ -69,12 +64,8 @@ import { MatNativeDateModule } from '@angular/material/core';
         
     ],
     declarations: [
-        // DashboardComponent,
-        // BoatHullMetarialComponent,
-        // BoatManufacturerComponent,
-        // BoatManufacturerLogoComponent,
-        // BoatModelComponent,
-        // BoatTypeComponent,
+        DashboardComponent,
+        
     ]
 })
 
